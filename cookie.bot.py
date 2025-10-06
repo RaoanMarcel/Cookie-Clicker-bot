@@ -68,7 +68,7 @@ def attempt_purchase(page, purchase):
                 return false;
             }})();
         """
-    else:  
+    else:
         js = f"""
             (function() {{
                 let obj = Game.ObjectsById[{purchase['id']}];
@@ -79,20 +79,6 @@ def attempt_purchase(page, purchase):
                 return false;
             }})();
         """
-    return page.evaluate(js)
-
-
-def auto_select_language(page, lang_code="PT-BR"):
-    js = f"""
-        (function(){{
-          const btn = document.querySelector('.langSelectButton[data-lang="{lang_code}"]');
-          if (btn) {{
-            btn.click();
-            return true;
-          }}
-          return false;
-        }})();
-    """
     return page.evaluate(js)
 
 
